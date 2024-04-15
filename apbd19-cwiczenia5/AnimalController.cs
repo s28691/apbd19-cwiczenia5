@@ -57,4 +57,17 @@ public IActionResult UpdateAnimal(int id, Animal updatedAnimal)
 
    return NoContent();
 }
+[HttpDelete("{id}")]
+public IActionResult DeleteAnimal(int id)
+{
+   var existingAnimal = animals.FirstOrDefault(a => a.Id == id);
+   if (existingAnimal == null)
+   {
+      return NotFound();
+   }
+
+   animals.Remove(existingAnimal);
+   return NoContent();
+}
+}
 }
