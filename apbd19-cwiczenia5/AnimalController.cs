@@ -14,6 +14,12 @@ public class AnimalController : ControllerBase
       new Animal { Id = 4, Name = "Fish", Category = "Aquatic", Age = 1, Color = "Blue" },
       new Animal { Id = 5, Name = "Rabbit", Category = "Mammal", Age = 4, Color = "Gray" }
    };
+   private static readonly List<Visit> visits = new()
+      {
+            new Visit { Id = 1, VisitDate = DateTime.Now.AddDays(-7), Description = "Vaccination", Price = 50, AnimalId = 1 },
+            new Visit { Id = 2, VisitDate = DateTime.Now.AddDays(-2), Description = "Checkup", Price = 30, AnimalId = 2 }
+      };
+      
    
 [HttpGet]
 public IActionResult GetAnimals()
