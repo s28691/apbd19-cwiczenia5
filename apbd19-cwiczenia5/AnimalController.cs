@@ -40,4 +40,21 @@ public ActionResult<Animal> AddAnimal(Animal animal)
    animals.Add(animal);
    return CreatedAtAction(nameof(GetAnimalById), new { id = animal.Id }, animal);
 }
+
+[HttpPut("{id}")]
+public IActionResult UpdateAnimal(int id, Animal updatedAnimal)
+{
+   var existingAnimal = animals.FirstOrDefault(a => a.Id == id);
+   if (existingAnimal == null)
+   {
+      return NotFound();
+   }
+
+   existingAnimal.Name = updatedAnimal.Name;
+   existingAnimal.Category = updatedAnimal.Category;
+   existingAnimal.Age = updatedAnimal.Age;
+   existingAnimal.Color = updatedAnimal.Color;
+
+   return NoContent();
+}
 }
