@@ -70,4 +70,4 @@ public IActionResult DeleteAnimal(int id)
    return NoContent();
 }
 }
-}
+
